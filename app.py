@@ -70,34 +70,23 @@ def predict(model, image):
 # =====================================================================================
 # STREAMLIT UI
 # =====================================================================================
-st.title("🩺 TB Classification with Dual-Model Ensemble")
+st.title("🩺 TB Classification")
 
 st.write("""
-### Preprocessing:
-1. CLAHE  
-2. CLAHE + Canny  
-
-### Prediction Path:
-- CLAHE → Model VD  
-- Canny → Model DIV  
-
+### ⚠️ Model Information & Limitations
+- Aplikasi ini dikembangkan sebagai bagian dari penelitian skripsi pada jenjang Sarjana Informatika.
+- Sistem dibuat untuk kebutuhan akademik, eksperimen, dan evaluasi metode, bukan penggunaan klinis.
+- Dataset yang digunakan terbatas sehingga generalisasi hasil pada data lain belum terjamin.
+- Performa model dipengaruhi kualitas citra dan proses preprocessing yang digunakan.
+- Alur pemrosesan: CLAHE diprediksi oleh Model ensemble VGG16 + DensNet201, sedangkan CLAHE + Canny diprediksi oleh Model ensemble DensNet201+ InceptionV3 + VGG16
+- Hasil prediksi tidak dapat dijadikan dasar diagnosis medis profesional.
+         
 ### 📌 Spesifikasi Gambar yang Diperbolehkan
 - Format **PNG**
 - Orientasi **Potrait**
 - Jenis gambar **CXR (Chest X-Ray)**
-
-### ⚠️ Model Information & Limitations
-Model ini dikembangkan menggunakan dataset tertentu yaitu tb 11k dengan metode preprocessing 
-CLAHE dan Canny Edge Detection. Performa model dapat menurun apabila digunakan 
-pada citra dari sumber atau dataset lain karena perbedaan distribusi data, 
-kualitas citra, serta sensitivitas metode deteksi tepi terhadap noise.
-
-Preprocessing berbasis edge (Canny) dapat memperkuat noise atau artefak pada citra, 
-yang berpotensi mempengaruhi hasil klasifikasi dan menyebabkan bias prediksi.
-
-Sistem ini dikembangkan untuk keperluan penelitian dan evaluasi akademik, 
-serta tidak dimaksudkan sebagai alat diagnosis medis.
-""") 
+         
+""")
 
 
 # ----------------------------------------------------------
